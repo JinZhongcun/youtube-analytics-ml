@@ -1,0 +1,64 @@
+{
+  "model_params": {
+    "C": 1,
+    "epsilon": 0.01,
+    "gamma": 0.01
+  },
+  "performance": {
+    "train": {
+      "mse": 0.31325440624286655,
+      "r2": 0.14747058590118933,
+      "mae": 0.4554673250578681
+    },
+    "test": {
+      "mse": 0.2864850890400823,
+      "r2": 0.16871871678403993,
+      "mae": 0.437478860640921
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "brightness",
+      "importance": 0.22593306035551852
+    },
+    {
+      "feature": "video_duration",
+      "importance": 0.20669664170784482
+    },
+    {
+      "feature": "subscribers",
+      "importance": 0.19931781247505398
+    },
+    {
+      "feature": "tags_count",
+      "importance": 0.1703697209831219
+    },
+    {
+      "feature": "object_complexity",
+      "importance": 0.16818019019400943
+    },
+    {
+      "feature": "days_since_publish",
+      "importance": 0.16558005319781555
+    },
+    {
+      "feature": "colorfulness",
+      "importance": 0.16289531583244313
+    },
+    {
+      "feature": "description_length",
+      "importance": 0.16054773413204132
+    },
+    {
+      "feature": "element_complexity",
+      "importance": 0.1454001987604256
+    }
+  ],
+  "pca_variance_ratio": [
+    0.2159401140102333,
+    0.18208043145687763,
+    0.13250893804941052,
+    0.10476708977824627,
+    0.09942944470390115
+  ]
+}

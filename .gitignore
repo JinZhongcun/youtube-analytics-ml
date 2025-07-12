@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Data files (large files)
+*.db
+*.sqlite
+*.h5
+*.pkl
+*.pickle
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+docker-compose.yaml
+ssh.sh
+docker_login.sh
+
+# Personal files
+*.heic
+*.HEIC
+*.jpeg
+*.jpg
+*.mp4
+*.MP4
+*.exe
+*.msi
+*.dmg
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+tmux*.log
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Numbers file (Apple spreadsheet)
+*.numbers
+
+# Keep only essential output files
+!correlation_matrix.png
+!pca_variance.png
+!comprehensive_model_comparison.png
+!svm_predictions.png
+!feature_importance_svm.png
