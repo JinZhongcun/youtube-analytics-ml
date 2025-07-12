@@ -34,6 +34,25 @@ YouTube動画の再生回数予測 - 767動画を分析
 - **チャンネル登録者数**が最重要（500万人以上推奨）
 - **サムネイルは明るすぎず**（明度70前後）**シンプルに**
 
+## データセット
+
+### 収集方法
+- **YouTube Data API v3**を使用して収集
+- **期間**: 2025年6月〜7月の日本のトレンド動画
+- **データ数**: 767件
+
+### データ内容（youtube_top_jp.csv）
+- 動画メタデータ: video_id, title, category_id, video_duration, tags_count
+- 統計データ: views, likes, comment_count, subscribers
+- サムネイル分析: brightness, colorfulness, object_complexity, element_complexity
+- その他: description_length, published_at, keyword
+
+### カテゴリ分布
+- カテゴリ22（エンターテインメント）: 317件
+- カテゴリ24（エンターテインメント）: 147件
+- カテゴリ10（音楽）: 33件
+- その他: 270件
+
 ## 環境構築
 
 ### 必要なパッケージ
