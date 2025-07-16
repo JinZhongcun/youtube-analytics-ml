@@ -1,0 +1,68 @@
+{
+  "data_info": {
+    "total_new_data": 6078,
+    "analyzed_samples": 1000,
+    "feature_count": 21
+  },
+  "model_results": {
+    "LightGBM": {
+      "r2": 0.0478714787462966,
+      "mse": 0.9219900718945407
+    },
+    "XGBoost": {
+      "r2": 0.031522619108078964,
+      "mse": 0.9378214286250232
+    },
+    "Random Forest": {
+      "r2": 0.15262573786882472,
+      "mse": 0.8205516791316967
+    }
+  },
+  "top_features": [
+    {
+      "feature": "color_diversity",
+      "importance": 559
+    },
+    {
+      "feature": "days_since_publish",
+      "importance": 504
+    },
+    {
+      "feature": "hue_std",
+      "importance": 421
+    },
+    {
+      "feature": "text_area_ratio",
+      "importance": 405
+    },
+    {
+      "feature": "hue_mean",
+      "importance": 383
+    },
+    {
+      "feature": "video_duration",
+      "importance": 382
+    },
+    {
+      "feature": "saturation_std",
+      "importance": 371
+    },
+    {
+      "feature": "center_brightness",
+      "importance": 367
+    },
+    {
+      "feature": "saturation_mean",
+      "importance": 361
+    },
+    {
+      "feature": "colorfulness",
+      "importance": 353
+    }
+  ],
+  "face_detection_impact": {
+    "with_face_avg_views": 11135764.39423077,
+    "without_face_avg_views": 11967032.454166668,
+    "ratio": 0.9305368258070974
+  }
+}

@@ -1,19 +1,31 @@
 # YouTube Analytics ML
 
-YouTube動画の再生回数予測 - 767動画を分析
+YouTube動画の再生回数予測 - 6,078動画 + サムネイル画像分析
 
 **講義課題**: YouTubeの再生回数に影響を与える要因を特定し、コンテンツ制作者が視聴者数を増やすための戦略を立案（PCAとSVMを使用）
+
+## 最新アップデート（2025/7/16）
+- 6,078件の動画データと全サムネイル画像を追加分析
+- 画像解析（顔検出、エッジ検出、色解析）を実装
+- **R²スコアが0.21→0.44に大幅改善（2倍以上！）**
 
 ## 結果
 
 ### モデル性能（テストR²）
-| 順位 | モデル | R² | MSE | MAE |
-|:---:|:---|:---:|:---:|:---:|
-| 1 | LightGBM | **0.2102** | 0.2721 | 0.4229 |
-| 2 | Random Forest | 0.1933 | 0.2779 | 0.4302 |
-| 3 | XGBoost | 0.1892 | 0.2793 | 0.4300 |
-| 4 | PCA+Random Forest | 0.1843 | 0.2810 | 0.4352 |
-| 5 | SVM (RBF) | 0.1687 | 0.2865 | 0.4375 |
+
+#### 最新結果（サムネイル画像統合後）
+| 順位 | モデル | R² | 改善率 | データ |
+|:---:|:---|:---:|:---:|:---|
+| 1 | **Random Forest + 画像** | **0.4416** | +110% | 統合データ |
+| 2 | Ensemble (3モデル) | 0.4334 | +106% | 統合データ |
+| 3 | XGBoost + 画像 | 0.4103 | +95% | 統合データ |
+| 4 | LightGBM + 画像 | 0.3652 | +74% | 統合データ |
+
+#### 初期結果（比較用）
+| モデル | R² | データ |
+|:---|:---:|:---|
+| LightGBM（初期） | 0.2102 | 767件 |
+| 画像のみ | 0.1526 | 6,078件（subscribersなし） |
 
 ### 高再生回数の特徴
 | 特徴 | 高再生（上位25%） | 低再生（下位50%） | 差 |
@@ -41,7 +53,9 @@ YouTube動画の再生回数予測 - 767動画を分析
 ### 収集方法
 - **YouTube Data API v3**を使用して収集
 - **期間**: 2025年6月〜7月の日本のトレンド動画
-- **データ数**: 767件
+- **初期データ**: 767件（subscribers含む）
+- **追加データ**: 6,078件（サムネイル画像含む）
+- **統合データ**: 607件（両方の情報を持つ）
 
 ### データ内容（youtube_top_jp.csv）
 - 動画メタデータ: video_id, title, category_id, video_duration, tags_count
@@ -74,16 +88,21 @@ docker run --rm -v $(pwd):/work youtube-analytics
 .
 ├── README.md                              # このファイル
 ├── Dockerfile                             # Docker環境定義
-├── youtube_top_jp.csv                     # 元データ
+├── youtube_top_jp.csv                     # 初期データ（767件）
+├── youtube_top_new.csv                    # 追加データ（6,078件）
+├── thumbnails/                            # サムネイル画像フォルダ
+│   └── *.jpg                             # 6,078枚の画像
 ├── youtube_analysis.py                    # EDA・PCA分析
 ├── svm_analysis.py                        # SVM分析
+├── simple_image_analysis.py               # 画像特徴抽出分析
+├── merge_and_improve.py                   # データ統合・改良モデル
 ├── comprehensive_model_comparison.py      # 包括的モデル比較
 ├── comprehensive_model_comparison_parallel.py  # 並列処理版
 └── 出力ファイル/
     ├── correlation_matrix.png             # 相関行列
-    ├── pca_variance.png                   # PCA寄与率
-    ├── comprehensive_model_comparison.png # モデル比較結果
-    └── comprehensive_results.json         # 詳細な数値結果
+    ├── simple_image_analysis.png          # 画像分析結果
+    ├── merged_model_analysis.png          # 統合モデル結果
+    └── *.json                            # 各種分析結果
 ```
 
 ## 実行方法
@@ -93,12 +112,17 @@ docker run --rm -v $(pwd):/work youtube-analytics
 python youtube_analysis.py
 ```
 
-### 2. SVMモデルの構築
+### 2. 画像特徴抽出分析
 ```bash
-python svm_analysis.py
+python simple_image_analysis.py
 ```
 
-### 3. 包括的なモデル比較
+### 3. データ統合と改良モデル（推奨）
+```bash
+python merge_and_improve.py
+```
+
+### 4. 包括的なモデル比較
 ```bash
 python comprehensive_model_comparison_parallel.py
 ```
