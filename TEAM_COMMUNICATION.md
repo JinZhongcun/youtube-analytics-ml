@@ -8,7 +8,7 @@
 
 拡張データには重要だったsubscribersデータに欠損が確認されたため、いくつかの実験を行うことにしました。
 
-欠損なしのみ（10%程度のみ使用）での結果が一番よく、subscribersデータを使わない（100%のデータを使用）の場合も悪くない結果が出ました 🎉
+欠損なしのみ（10%程度のみ使用）での結果が一番よく、subscribersデータを使わない（100%のデータを使用）の場合も悪くない結果が出ました。
 
 これでいいんじゃないかなと思ってますが、より良くするには、すべてのデータにsubscribersを加えることかなと思ってます。
 
@@ -18,7 +18,7 @@ Because of the lack of the data, I beg @MENG SIYUAN to get more data, and he did
 
 I did some experiments due to the configuration of the lack of the column of "subscribers", which is important to predict.
 
-The condition 1 (Using only 10% that data has "subscribers" data) is the most good accuracy, and the condition2 (100% data without "subscribers" data) is the secondly good 🎉
+The condition 1 (Using only 10% that data has "subscribers" data) is the most good accuracy, and the condition2 (100% data without "subscribers" data) is the secondly good.
 
 I think our mission is completed, but if you think we want to make more good model, we should use the data which has "subscriber" data.
 
