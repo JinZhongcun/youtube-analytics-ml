@@ -2,7 +2,11 @@
 
 > 📚 **論文・レポート執筆用の詳細版は [`README_detailed_analysis.md`](README_detailed_analysis.md) を参照してください**
 > 
-> For academic/research purposes, please refer to the detailed analysis in [`README_detailed_analysis.md`](README_detailed_analysis.md)
+> 🔬 **実験の実行手順とコードの使い方は [`EXPERIMENT_EXECUTION_GUIDE.md`](EXPERIMENT_EXECUTION_GUIDE.md) を参照してください**
+> 
+> For academic/research purposes, please refer to:
+> - Detailed analysis: [`README_detailed_analysis.md`](README_detailed_analysis.md)
+> - Experiment execution guide: [`EXPERIMENT_EXECUTION_GUIDE.md`](EXPERIMENT_EXECUTION_GUIDE.md)
 
 ## 📊 Project Overview / プロジェクト概要
 
