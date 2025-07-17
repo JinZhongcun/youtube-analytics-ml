@@ -1,0 +1,20 @@
+FROM python:3.9
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir \
+    pandas==2.3.1 \
+    numpy==2.0.2 \
+    matplotlib==3.9.4 \
+    seaborn==0.13.2 \
+    pillow==11.3.0 \
+    opencv-python-headless==4.12.0.88 \
+    scikit-learn==1.6.1 \
+    lightgbm==4.6.0 \
+    xgboost==2.1.4
+
+RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
+
+COPY . .
+
+CMD ["python3", "use_all_6078_data.py"]

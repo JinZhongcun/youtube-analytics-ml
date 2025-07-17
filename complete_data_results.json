@@ -1,0 +1,54 @@
+{
+  "data_count": 6062,
+  "train_count": 4849,
+  "test_count": 1213,
+  "models": {
+    "lightgbm": 0.9949848386746974,
+    "xgboost": 0.991159295492514,
+    "random_forest": 0.9941610414616845,
+    "ensemble": 0.9953447283334937
+  },
+  "best_r2": 0.9953447283334937,
+  "top_features": [
+    {
+      "feature": "subscribers",
+      "importance": 5282
+    },
+    {
+      "feature": "subscriber_per_view",
+      "importance": 4509
+    },
+    {
+      "feature": "days_since_publish",
+      "importance": 1992
+    },
+    {
+      "feature": "video_duration",
+      "importance": 1668
+    },
+    {
+      "feature": "colorfulness",
+      "importance": 1541
+    },
+    {
+      "feature": "brightness",
+      "importance": 1349
+    },
+    {
+      "feature": "log_subscribers",
+      "importance": 980
+    },
+    {
+      "feature": "hour_published",
+      "importance": 907
+    },
+    {
+      "feature": "desc_per_second",
+      "importance": 893
+    },
+    {
+      "feature": "description_length",
+      "importance": 807
+    }
+  ]
+}
