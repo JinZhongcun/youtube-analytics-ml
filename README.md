@@ -1,5 +1,9 @@
 # YouTube Analytics ML Project
 
+> 📚 **論文・レポート執筆用の詳細版は [`README_detailed_analysis.md`](README_detailed_analysis.md) を参照してください**
+> 
+> For academic/research purposes, please refer to the detailed analysis in [`README_detailed_analysis.md`](README_detailed_analysis.md)
+
 ## 📊 Project Overview / プロジェクト概要
 
 This project analyzes YouTube video performance using machine learning, focusing on predicting view counts through thumbnail image analysis and metadata features.
