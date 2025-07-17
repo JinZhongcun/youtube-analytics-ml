@@ -7,8 +7,9 @@ This project analyzes YouTube video performance using machine learning, focusing
 YouTubeの動画パフォーマンスを機械学習で分析し、サムネイル画像とメタデータから再生回数を予測するプロジェクトです。
 
 ### Key Achievements / 主な成果
-- **2x Performance Improvement**: R² increased from 0.21 to 0.44
-- **6,078 Videos Analyzed**: Comprehensive dataset with thumbnail images
+- **Final Best Performance**: R² = 0.4528 with complete dataset
+- **6,062 Videos Analyzed**: Full dataset with restored subscribers
+- **75.8% Improvement**: Adding subscribers improved R² from 0.2575 to 0.4528
 - **No Deep Learning Required**: Achieved strong results with classical ML and OpenCV
 
 ## 🎯 Results Summary / 結果まとめ
@@ -21,12 +22,15 @@ YouTubeの動画パフォーマンスを機械学習で分析し、サムネイ�
 | **Best Model** | 607 videos | **0.44** | All features + images |
 | No-Subscribers Model | 6,078 videos | 0.34 | Images + metadata only |
 
-### Top Predictive Features / 重要な特徴量
-1. **Colorfulness** (0.226) - 色の鮮やかさ
-2. **Video Duration** (0.207) - 動画の長さ
-3. **Subscribers** (0.199) - チャンネル登録者数
-4. **Tags Count** (0.170) - タグ数
-5. **Object Complexity** (0.168) - オブジェクトの複雑さ
+### Top Predictive Features (Final Model) / 最終モデルの重要特徴量
+1. **Subscribers** (1041, 24.5%) - チャンネル登録者数
+2. **Video Duration** (590, 13.9%) - 動画の長さ
+3. **Colorfulness** (576, 13.5%) - サムネイルの色彩
+4. **Brightness** (522, 12.3%) - サムネイルの明度
+5. **Description Length** (485, 11.4%) - 説明文の長さ
+6. **Hour Published** (425, 10.0%) - 投稿時刻
+7. **Tags Count** (313, 7.4%) - タグ数
+8. **Object Complexity** (245, 5.8%) - オブジェクトの複雑さ
 
 ## 🔍 Key Findings / 重要な発見
 
@@ -204,6 +208,50 @@ edge_density = np.sum(edges > 0) / size
 4. **Build to 5M+ subscribers** / 登録者500万人を目指す
 5. **Use 10-15 relevant tags** / 関連タグを10-15個使用
 
+## 📊 Detailed Analysis Documentation / 詳細分析ドキュメント
+
+### For Academic/Research Purposes
+Complete detailed analysis is available in `README_detailed_analysis.md` including:
+- Comprehensive methodology
+- Statistical analysis
+- Feature engineering details
+- Model evaluation metrics
+- Discussion and implications
+
+論文執筆用の詳細な分析は `README_detailed_analysis.md` を参照してください。
+
+### Experimental Design Summary / 実験設計概要
+
+#### Feature Engineering Pipeline
+1. **Basic Metadata**: video_duration, tags_count, description_length
+2. **Image Features** (OpenCV):
+   - Color: brightness, colorfulness, HSV statistics
+   - Structure: object_complexity, element_complexity, edge_density
+   - Content: face detection, text area ratio
+3. **Temporal Features**: hour_published, weekday_published, days_since_publish
+4. **Channel Features**: subscribers, log_subscribers
+
+#### Model Configuration
+```python
+# Optimized LightGBM parameters
+lgb_params = {
+    'num_leaves': 31,
+    'max_depth': 6,
+    'min_child_samples': 30,
+    'lambda_l2': 0.1,
+    'feature_fraction': 0.8,
+    'bagging_fraction': 0.8,
+    'learning_rate': 0.05,
+    'n_estimators': 200
+}
+```
+
+#### Evaluation Methodology
+- **Cross-validation**: 5-fold CV (KFold with random_state=42)
+- **Train/Test Split**: 80/20
+- **Metric**: R² (coefficient of determination)
+- **Data Leakage Prevention**: Excluded views-derived features
+
 ## 📁 Repository Structure / リポジトリ構造
 
 ```
@@ -211,9 +259,12 @@ edge_density = np.sum(edges > 0) / size
 ├── svm_analysis.py             # SVM implementation / SVM実装
 ├── simple_image_analysis.py     # Image features / 画像特徴抽出
 ├── merge_and_improve.py        # Best model / 最良モデル (R² = 0.44)
-├── no_subscribers_model.py     # No-subscriber model / subscribersなしモデル
+├── final_correct_analysis.py   # Final analysis / 最終分析 (R² = 0.4528)
+├── comprehensive_dataset_comparison.py  # Dataset comparison / データセット比較
 ├── youtube_top_jp.csv          # Original data / 元データ (767)
 ├── youtube_top_new.csv         # Extended data / 拡張データ (6,078)
+├── youtube_top_new_complete.csv # Complete data / 完全データ (6,062)
+├── README_detailed_analysis.md # Detailed documentation / 詳細ドキュメント
 └── thumbnails/                 # 14,612 images / サムネイル画像
 ```
 
