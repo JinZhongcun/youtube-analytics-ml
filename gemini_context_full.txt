@@ -1,0 +1,102 @@
+# YouTube動画予測プロジェクト完全コンテキスト
+
+## プロジェクト概要
+- 大阪大学Group4 国際融合科学論/先端融合科学論の課題2
+- 目的：YouTube動画のviews（再生数）を予測
+- 手法：PCA + SVM（その他ML手法も検証）
+
+## データセットの変遷
+
+### Phase 1: 初期データ（767件）
+- 基本的なメタデータのみ
+- R² = 0.21
+
+### Phase 2: Meng Siyuanさん提供データ（6,078件）
+- サムネイル画像特徴量追加
+- 90%でsubscribers欠損
+- 607件のみ完全データでR² = 0.44
+
+### Phase 3: subscribers復活データ（6,062件）
+- 全データにsubscribers追加
+- R² = 0.995 → リーケージ発見
+
+## 実験結果の詳細
+
+### 1. 初期結果（subscriber_per_view使用）
+```
+R² = 0.9953
+特徴量重要度:
+1. subscribers: 5282.0
+2. subscriber_per_view: 4509.0
+```
+
+### 2. subscriber_per_view除外
+```
+R² = 0.5423
+特徴量重要度:
+1. log_subscribers: 952.0
+2. days_since_publish: 713.0
+```
+
+### 3. subscribers完全除外（前回）
+```
+R² = 0.4080
+特徴量重要度:
+1. colorfulness: 1227.0
+2. days_since_publish: 944.0
+```
+
+### 4. subscribers完全除外（今回Phase3）
+```
+R² = 0.288 (CV)
+訓練R² = 0.899
+テストR² = 0.327
+```
+
+## データの詳細分析
+
+### 時系列の問題
+- 元データと新データで98.4%のviewsが変化
+- published_at: 2024-11-11 〜 2025-07-16
+- データ収集は異なる時点で実施
+
+### 特徴量の品質
+- tags_count: 58.7%がゼロ
+- description_length: 35.3%がゼロ
+- element_complexity: 11種類のみ
+
+### サムネイル特徴量（OpenCV抽出）
+- brightness, colorfulness
+- object_complexity (YOLOv3検出オブジェクト数)
+- element_complexity (輪郭検出数)
+- HSV統計量、エッジ密度など
+
+## 使用モデル
+1. LightGBM（主要）
+2. XGBoost
+3. Random Forest
+4. Linear Regression（ベースライン）
+
+## 問題の本質
+
+### 1. subscribersの時系列リーケージ
+- 本来：動画公開時subscribers → views
+- 実際：views → 人気でsubscribers増加 → 現在のsubscribers
+- 未来の情報で過去を予測している
+
+### 2. データ収集時期の不一致
+- 1,596件が消失（理由不明）
+- viewsが継続的に更新されている
+- time_durationがデータ収集時点依存
+
+### 3. 予測タスクの困難さ
+- サムネイルとメタデータのみでの予測
+- YouTubeのアルゴリズム、トレンド、バイラル性は考慮できない
+- チャンネルの既存人気度（真のsubscribers）が不明
+
+## 質問（再掲）
+1. これらの問題を踏まえて、このモデルは実用的と言えるか？
+2. R²が0.408→0.288に下がった原因は何か？
+3. 過学習を防ぐ具体的対策は？
+4. サムネイル画像とメタデータだけでの予測は現実的か？
+5. より良いアプローチは？
