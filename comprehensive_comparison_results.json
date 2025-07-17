@@ -1,0 +1,24 @@
+{
+  "dataset1_original": {
+    "name": "youtube_top_jp.csv",
+    "n_samples": 767,
+    "with_subscribers": true,
+    "cv_r2": 0.3239122322801739,
+    "cv_std": 0.09164531623417951
+  },
+  "dataset2_expanded": {
+    "name": "youtube_top_new.csv",
+    "n_samples": 6078,
+    "with_subscribers": false,
+    "cv_r2": 0.2696115147249484,
+    "cv_std": 0.016823204399092167
+  },
+  "dataset3_complete": {
+    "name": "youtube_top_new_complete.csv",
+    "n_samples": 6062,
+    "with_subscribers": true,
+    "cv_r2_no_sub": 0.25751613661988626,
+    "cv_r2_with_sub": 0.4528117575778838,
+    "improvement": 0.19529562095799752
+  }
+}

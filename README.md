@@ -76,9 +76,9 @@ YouTubeの動画パフォーマンスを機械学習で分析し、サムネイ�
 - **画像特徴だけでも実用的**な精度
 
 #### 6. 最終成果
-- **ベストモデル**: R² = 0.44（607件、全特徴）
-- **実用モデル**: R² = 0.34（6,078件、画像のみ）
-- **GitHubリポジトリ**: 完成・公開済み
+- **最良モデル**: R² = 0.4528（6,062件、全特徴）
+- **subscribersなし**: R² = 0.2575（6,062件、画像のみ）
+- **subscribersの効果**: +0.1953（75%改善）
 
 ### 🇺🇸 English Version
 
@@ -113,9 +113,9 @@ YouTubeの動画パフォーマンスを機械学習で分析し、サムネイ�
 - **Image features alone are practical**
 
 #### 6. Final Achievements
-- **Best model**: R² = 0.44 (607 videos, all features)
-- **Practical model**: R² = 0.34 (6,078 videos, images only)
-- **GitHub repository**: Completed & published
+- **Final best model**: R² = 0.4528 (6,062 videos, all features)
+- **Without subscribers**: R² = 0.2575 (6,062 videos, images only)
+- **Subscribers effect**: +0.1953 (75% improvement)
 
 ## 📊 Data Usage Documentation / データ使用詳細
 
@@ -181,10 +181,19 @@ edge_density = np.sum(edges > 0) / size
 - **Metadata + Images**: R² = 0.34
 - **All features**: R² = 0.44
 
-### Data Quality Impact / データ品質の影響
-- **Complete data (607 videos)**: R² = 0.44
-- **Missing subscribers (6,078 videos)**: R² = 0.23
-- **Image features compensate**: R² = 0.34 without subscribers
+### Final Dataset Comparison / 最終データセット比較
+
+| Dataset | Samples | Subscribers | CV R² |
+|---------|---------|-------------|-------|
+| youtube_top_jp.csv | 767 | Yes | 0.3239 |
+| youtube_top_new.csv | 6,078 | No | 0.2696 |
+| youtube_top_new_complete.csv | 6,062 | No | 0.2575 |
+| **youtube_top_new_complete.csv** | **6,062** | **Yes** | **0.4528** |
+
+### Key Findings / 重要な発見
+- **Subscribers impact**: +0.1953 (75% improvement)
+- **Data size effect**: Minimal (6,078 vs 767 similar performance)
+- **Best configuration**: Full dataset with subscribers
 
 ## 🚀 Recommendations / 推奨事項
 
