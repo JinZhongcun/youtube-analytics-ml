@@ -102,6 +102,24 @@ face_area = sum(w*h for x,y,w,h in faces) / (img.shape[0] * img.shape[1])
 - **subscribers**: チャンネル登録者数
 - **log_subscribers**: log(subscribers + 1)
 
+### 3.5 使用しなかった特徴量とその理由
+
+#### データリーケージを防ぐため除外
+1. **likes**: 視聴後のエンゲージメント（予測時点で存在しない）
+2. **comment_count**: 同上
+3. **subscriber_per_view**: views/subscribersはターゲット変数を含む
+4. **dislike_count**: APIで取得不可（YouTube側で非公開化）
+
+#### 実装上の理由で除外
+1. **title**: テキスト分析（NLP）未実装
+2. **description**: 同上（length のみ使用）
+3. **tags**: 個別タグの分析未実装（count のみ使用）
+4. **video_id, thumbnail_link**: 予測に無関係なID/URL
+
+#### データ品質の問題
+1. **time_duration**: データ収集時点依存のため除外
+2. **keyword**: category_idと重複
+
 ## 4. 実験設定
 
 ### 4.1 モデル設定
