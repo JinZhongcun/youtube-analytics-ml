@@ -1,0 +1,46 @@
+{
+  "analysis_info": {
+    "dataset_size": 6062,
+    "with_thumbnails": 4817,
+    "analysis_type": "FULL_DATASET_NO_SAMPLING",
+    "face_count": 2571,
+    "no_face_count": 2246,
+    "face_ratio": 0.5337
+  },
+  "model_performance": {
+    "basic_model": {
+      "features_count": 11,
+      "cv_r2_mean": 0.4980,
+      "cv_r2_std": 0.0193
+    },
+    "face_model": {
+      "features_count": 12,
+      "cv_r2_mean": 0.5022,
+      "cv_r2_std": 0.0225
+    },
+    "comparison": {
+      "performance_diff": 0.0041,
+      "improvement_rate_pct": 0.83,
+      "is_improvement": true
+    }
+  },
+  "feature_importance_basic_model": [
+    {"feature": "subscribers", "importance": 904, "percentage": 19.7},
+    {"feature": "days_since_publish", "importance": 611, "percentage": 13.3},
+    {"feature": "video_duration", "importance": 574, "percentage": 12.5},
+    {"feature": "brightness", "importance": 509, "percentage": 11.1},
+    {"feature": "colorfulness", "importance": 448, "percentage": 9.7},
+    {"feature": "hour_published", "importance": 442, "percentage": 9.6},
+    {"feature": "description_length", "importance": 383, "percentage": 8.3},
+    {"feature": "tags_count", "importance": 275, "percentage": 6.0},
+    {"feature": "object_complexity", "importance": 218, "percentage": 4.7},
+    {"feature": "log_subscribers", "importance": 128, "percentage": 2.8}
+  ],
+  "face_feature_analysis": {
+    "rank": 12,
+    "importance": 66,
+    "percentage": 1.43,
+    "conclusion": "MINIMAL_IMPACT",
+    "summary": "Face detection shows minimal improvement (0.83%) but ranks last in feature importance"
+  }
+}
