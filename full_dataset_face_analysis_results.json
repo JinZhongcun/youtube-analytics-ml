@@ -1,0 +1,51 @@
+{
+  "analysis_info": {
+    "dataset_size": 6062,
+    "with_thumbnails": 4817,
+    "analysis_type": "FULL_DATASET_NO_SAMPLING",
+    "face_count": 2571,
+    "no_face_count": 2246,
+    "face_ratio": 0.5337346896408554
+  },
+  "model_performance": {
+    "basic_model": {
+      "features_count": 11,
+      "cv_r2_mean": 0.4980443782935334,
+      "cv_r2_std": 0.01932028972075328,
+      "features": [
+        "video_duration",
+        "tags_count",
+        "description_length",
+        "object_complexity",
+        "element_complexity",
+        "brightness",
+        "colorfulness",
+        "subscribers",
+        "log_subscribers",
+        "hour_published",
+        "days_since_publish"
+      ]
+    },
+    "face_model": {
+      "features_count": 12,
+      "cv_r2_mean": 0.5021832188323845,
+      "cv_r2_std": 0.02246354258593757,
+      "features": [
+        "video_duration",
+        "tags_count",
+        "description_length",
+        "object_complexity",
+        "element_complexity",
+        "brightness",
+        "colorfulness",
+        "subscribers",
+        "log_subscribers",
+        "hour_published",
+        "days_since_publish",
+        "has_face"
+      ]
+    },
+    "comparison": {
+      "performance_diff": 0.004138840538851107,
+      "improvement_rate_pct": 0.8310184231036117,
+      "is_improvement": 

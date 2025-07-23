@@ -1,0 +1,22 @@
+{
+  "dataset_info": {
+    "total_samples": 4817,
+    "face_count": 2571,
+    "no_face_count": 2246,
+    "face_ratio": 0.5337346896408554
+  },
+  "model_performance": {
+    "basic_model": {
+      "cv_r2_mean": 0.49804437829353343,
+      "cv_r2_std": 0.019320289720753274,
+      "features_count": 11
+    },
+    "face_model": {
+      "cv_r2_mean": 0.5021832188323845,
+      "cv_r2_std": 0.022463542585937548,
+      "features_count": 12
+    },
+    "comparison": {
+      "performance_diff": 0.004138840538851052,
+      "improvement_pct": 0.8310184231036004,
+      "is_significant": 
