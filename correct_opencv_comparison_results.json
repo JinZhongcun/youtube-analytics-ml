@@ -1,0 +1,77 @@
+{
+  "analysis_type": "OPENCV_FEATURES_COMPARISON",
+  "dataset_info": {
+    "total_samples": 6062,
+    "face_count": 2571,
+    "no_face_count": 3491,
+    "face_ratio": 0.42411745298581327
+  },
+  "model_performance": {
+    "basic_metadata_only": {
+      "cv_r2_mean": 0.47488323339827243,
+      "cv_r2_std": 0.01991634678031903,
+      "features_count": 7,
+      "features": [
+        "video_duration",
+        "tags_count",
+        "description_length",
+        "subscribers",
+        "log_subscribers",
+        "hour_published",
+        "days_since_publish"
+      ]
+    },
+    "opencv_features_included": {
+      "cv_r2_mean": 0.4891149263799587,
+      "cv_r2_std": 0.010706361976685163,
+      "features_count": 12,
+      "opencv_features": [
+        "object_complexity",
+        "element_complexity",
+        "brightness",
+        "colorfulness",
+        "has_face"
+      ]
+    },
+    "comparison": {
+      "performance_diff": 0.01423169298168625,
+      "improvement_pct": 2.9968825978217875,
+      "is_significant": false
+    }
+  },
+  "opencv_analysis": {
+    "total_contribution_pct": 28.230578354647832,
+    "individual_rankings": [
+      {
+        "feature": "object_complexity",
+        "rank": 8,
+        "importance": 207.0,
+        "percentage": 3.9511357129223135
+      },
+      {
+        "feature": "element_complexity",
+        "rank": 9,
+        "importance": 111.0,
+        "percentage": 2.1187249475090666
+      },
+      {
+        "feature": "brightness",
+        "rank": 10,
+        "importance": 602.0,
+        "percentage": 11.490742508112236
+      },
+      {
+        "feature": "colorfulness",
+        "rank": 11,
+        "importance": 475.0,
+        "percentage": 9.066615766367628
+      },
+      {
+        "feature": "has_face",
+        "rank": 12,
+        "importance": 84.0,
+        "percentage": 1.603359419736591
+      }
+    ]
+  }
+}
