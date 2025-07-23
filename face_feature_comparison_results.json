@@ -1,0 +1,104 @@
+{
+  "dataset_info": {
+    "original_data": 6062,
+    "with_thumbnails": 4817,
+    "sample_size": 1000,
+    "face_count": 542,
+    "no_face_count": 458
+  },
+  "model_performance": {
+    "basic_model": {
+      "features_count": 11,
+      "cv_r2_mean": 0.3755145649302296,
+      "cv_r2_std": 0.0742586227667388
+    },
+    "face_model": {
+      "features_count": 12,
+      "cv_r2_mean": 0.3683122155888577,
+      "cv_r2_std": 0.07073577139170927
+    },
+    "comparison": {
+      "performance_diff": -0.0072023493413719275,
+      "improvement_rate_pct": -1.9179946702493738
+    }
+  },
+  "feature_importance": {
+    "basic_model": [
+      {
+        "feature": "subscribers",
+        "importance": 441
+      },
+      {
+        "feature": "days_since_publish",
+        "importance": 353
+      },
+      {
+        "feature": "video_duration",
+        "importance": 351
+      },
+      {
+        "feature": "brightness",
+        "importance": 321
+      },
+      {
+        "feature": "colorfulness",
+        "importance": 302
+      },
+      {
+        "feature": "hour_published",
+        "importance": 198
+      },
+      {
+        "feature": "description_length",
+        "importance": 188
+      },
+      {
+        "feature": "object_complexity",
+        "importance": 113
+      }
+    ],
+    "face_model": [
+      {
+        "feature": "subscribers",
+        "importance": 438
+      },
+      {
+        "feature": "days_since_publish",
+        "importance": 377
+      },
+      {
+        "feature": "video_duration",
+        "importance": 339
+      },
+      {
+        "feature": "colorfulness",
+        "importance": 334
+      },
+      {
+        "feature": "brightness",
+        "importance": 314
+      },
+      {
+        "feature": "hour_published",
+        "importance": 201
+      },
+      {
+        "feature": "description_length",
+        "importance": 199
+      },
+      {
+        "feature": "object_complexity",
+        "importance": 109
+      },
+      {
+        "feature": "tags_count",
+        "importance": 85
+      }
+    ]
+  },
+  "face_feature_analysis": {
+    "rank": 12,
+    "importance": 27.0,
+    "percentage": 1.0659297275957362
+  }
+}
