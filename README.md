@@ -1,5 +1,21 @@
 # YouTube Analytics ML Project
 
+## 🚨 重要：データリーケージ検証済み (2025-01-23更新)
+
+**最新の検証結果：**
+- ✅ **メインモデルはリークフリー**: `final_correct_analysis.py`、`comprehensive_dataset_comparison.py`
+- ⚠️ **一部にリーク発見**: `complete_data_results.json` でR² > 0.99（`subscriber_per_view`が原因）
+- ✅ **正しい性能**: LightGBM R² = **0.4528** (6,062件、クリーンデータ)
+- ❌ **古い図**: GitHub上の一部モデル比較図は767件の古いデータを使用
+
+**使用すべき正しい結果:**
+- **最終性能**: CV R² = 0.4528 (LightGBM)
+- **データセット**: youtube_top_new_complete.csv (6,062件)
+- **特徴量**: subscribers使用可（アップロード時点の情報）
+- **除外済み**: likes, comment_count（視聴後のデータ）
+
+---
+
 > 📚 **論文・レポート執筆用の詳細版は [`README_detailed_analysis.md`](README_detailed_analysis.md) を参照してください**
 > 
 > 🔬 **実験の実行手順とコードの使い方は [`EXPERIMENT_EXECUTION_GUIDE.md`](EXPERIMENT_EXECUTION_GUIDE.md) を参照してください**
